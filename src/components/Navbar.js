@@ -57,7 +57,11 @@ const Navbar = () => {
       }
     };
     menuRef.current.addEventListener('keydown', handleKeyDown);
-    return () => menuRef.current.removeEventListener('keydown', handleKeyDown);
+    return () => {
+      if (menuRef.current) {
+        menuRef.current.removeEventListener('keydown', handleKeyDown);
+      }
+    };
   }, [isOpen]);
 
   const navItems = [
@@ -72,9 +76,15 @@ const Navbar = () => {
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Dynamic offset: smaller on mobile
+      const isMobile = window.innerWidth < 640;
+      const yOffset = isMobile ? -50 : -80;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      setTimeout(() => setIsOpen(false), 350);
+    } else {
+      setIsOpen(false);
     }
-    setIsOpen(false);
   };
 
   // Click outside to close mobile menu
@@ -144,7 +154,7 @@ const Navbar = () => {
           <div className="flex items-center justify-end flex-1 md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="flex items-center justify-center w-12 h-12 mr-2 text-gray-300 transition-colors duration-300 rounded-full hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 sm:mr-4 md:mr-0"
+              className="flex items-center justify-center w-12 h-12 mr-2 text-white transition-colors duration-300 rounded-full bg-blue-500/80 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 sm:mr-4 md:mr-0"
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
@@ -169,7 +179,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
-              className="relative z-50 py-4 mt-2 rounded-b-lg shadow-lg bg-white/10 backdrop-blur-md"
+              className="relative z-50 py-4 mt-2 border shadow-2xl rounded-b-xl bg-gray-900/80 backdrop-blur-xl border-white/10"
               style={{ minWidth: '70vw', maxWidth: 400, margin: '0 auto' }}
               tabIndex={-1}
             >
