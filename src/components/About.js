@@ -48,23 +48,9 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="relative pt-0 pb-10 overflow-hidden md:pb-20 lg:pb-24">
+    <section id="about" className="relative pt-0 pb-10 md:pb-20 lg:pb-24">
       {/* Animated Background Elements */}
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        className="absolute w-16 h-16 border rounded-full top-4 right-4 border-blue-500/20 sm:w-20 sm:h-20 sm:top-10 sm:right-10"
-      />
-      <motion.div
-        animate={{ rotate: -360 }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute w-12 h-12 border rounded-full bottom-8 left-4 border-purple-500/20 sm:w-16 sm:h-16 sm:bottom-20 sm:left-10"
-      />
-      <motion.div
-        variants={floatingVariants}
-        animate="animate"
-        className="absolute w-8 h-8 rounded-full top-1/2 left-1/4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 blur-xl sm:w-12 sm:h-12"
-      />
+      {/* Removed animated background elements */}
 
       <div className="relative z-10 px-2 container-custom sm:px-4 md:px-8">
         <motion.div
