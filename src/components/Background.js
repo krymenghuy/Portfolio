@@ -213,21 +213,6 @@ const Background = () => {
           }}
         />
       ))}
-      {/* Animated Moon */}
-      <motion.div
-        className="absolute rounded-full shadow-2xl bg-gradient-to-br from-yellow-200 via-white to-yellow-100"
-        style={{ width: '80px', height: '80px', top: '5%', right: '10%' }}
-        animate={{
-          x: [0, -100, 0],
-          y: [0, 30, 0],
-          boxShadow: [
-            '0 0 60px 10px #fff7b2',
-            '0 0 80px 20px #fffde4',
-            '0 0 60px 10px #fff7b2',
-          ],
-        }}
-        transition={{ duration: 30, repeat: Infinity, ease: 'easeInOut' }}
-      />
     </div>
   );
 };

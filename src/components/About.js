@@ -48,22 +48,22 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="relative pt-0 pb-16 overflow-hidden md:pb-20 lg:pb-24">
+    <section id="about" className="relative pt-0 pb-10 overflow-hidden md:pb-20 lg:pb-24">
       {/* Animated Background Elements */}
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        className="absolute w-20 h-20 border rounded-full top-10 right-10 border-blue-500/20"
+        className="absolute w-16 h-16 border rounded-full top-4 right-4 border-blue-500/20 sm:w-20 sm:h-20 sm:top-10 sm:right-10"
       />
       <motion.div
         animate={{ rotate: -360 }}
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute w-16 h-16 border rounded-full bottom-20 left-10 border-purple-500/20"
+        className="absolute w-12 h-12 border rounded-full bottom-8 left-4 border-purple-500/20 sm:w-16 sm:h-16 sm:bottom-20 sm:left-10"
       />
       <motion.div
         variants={floatingVariants}
         animate="animate"
-        className="absolute w-12 h-12 rounded-full top-1/2 left-1/4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 blur-xl"
+        className="absolute w-8 h-8 rounded-full top-1/2 left-1/4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 blur-xl sm:w-12 sm:h-12"
       />
 
       <div className="relative z-10 px-2 container-custom sm:px-4 md:px-8">
@@ -72,10 +72,10 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.0 }}
           viewport={{ once: true }}
-          className="mb-12 text-center"
+          className="mb-8 text-center sm:mb-12"
         >
           <motion.h2 
-            className="mb-4 text-4xl font-bold text-white"
+            className="mb-3 text-3xl font-bold text-white sm:mb-4 sm:text-4xl"
             animate={{ 
               textShadow: [
                 "0 0 20px rgba(59, 130, 246, 0.5)",
@@ -88,15 +88,15 @@ const About = () => {
             About Me
           </motion.h2>
           <motion.div 
-            className="w-24 h-1 mx-auto bg-gradient-to-r from-blue-400 to-purple-400"
+            className="w-16 h-1 mx-auto bg-gradient-to-r from-blue-400 to-purple-400 sm:w-24"
             initial={{ width: 0 }}
-            whileInView={{ width: "6rem" }}
+            whileInView={{ width: "4rem" }}
             transition={{ duration: 1.0, delay: 0.3 }}
             viewport={{ once: true }}
           />
         </motion.div>
 
-        <div className="grid items-center gap-8 md:gap-10 lg:gap-12 lg:grid-cols-2">
+        <div className="flex flex-col gap-8 md:gap-10 lg:gap-12 lg:grid lg:grid-cols-2">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -105,7 +105,7 @@ const About = () => {
             viewport={{ once: true }}
           >
             <motion.h3 
-              className="mb-6 text-2xl font-bold text-white"
+              className="mb-4 text-xl font-bold text-white sm:mb-6 sm:text-2xl"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -113,8 +113,7 @@ const About = () => {
             >
               Passionate Web Developer
             </motion.h3>
-            
-            <div className="text-gray-300 space-y-4leading-relaxed sm:text-lg">
+            <div className="space-y-3 text-sm leading-relaxed text-gray-300 sm:text-base">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -123,9 +122,8 @@ const About = () => {
               >
               A dedicated Full-Stack Web Developer with a passion for crafting clean, efficient, and user-centric digital solutions. Currently pursuing my Bachelor’s in Computer Science at Norton University, I complement my academic knowledge with hands-on experience gained from Sunrise Institute’s intensive web development program and real-world projects.
               </motion.p>
-              
             </div>
-            <div className="text-gray-300 space-y-4leading-relaxed sm:text-lg">
+            <div className="space-y-3 text-sm leading-relaxed text-gray-300 sm:text-base">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -134,9 +132,8 @@ const About = () => {
               >
              🎓 Formally Trained: Certified in Web Development from Sunrise Institute (2023-2024), mastering modern frameworks and best practices.
               </motion.p>
-              
             </div>
-            <div className="text-gray-300 space-y-4leading-relaxed sm:text-lg">
+            <div className="space-y-3 text-sm leading-relaxed text-gray-300 sm:text-base">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -145,9 +142,8 @@ const About = () => {
               >
             💻 Practical Builder: Developed full-stack projects including e-commerce platforms, document management systems, and rental solutions using PHP, Laravel, JavaScript (React.js), and MySQL.
               </motion.p>
-              
             </div>
-            <div className="text-gray-300 space-y-4leading-relaxed sm:text-lg">
+            <div className="space-y-3 text-sm leading-relaxed text-gray-300 sm:text-base">
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -156,7 +152,6 @@ const About = () => {
               >
             🏢 Professional Experience: Applied my skills in a professional setting web design role at PHSARTECH company, delivering client-focused solutions.
               </motion.p>
-              
             </div>
           </motion.div>
 
@@ -166,7 +161,7 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.0, delay: 0.4 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="flex flex-col gap-4 sm:gap-6"
           >
             {features.map((feature, index) => (
               <motion.div
@@ -180,7 +175,7 @@ const About = () => {
                   y: -5,
                   transition: { duration: 0.3 }
                 }}
-                className="p-6 transition-all duration-500 border rounded-lg bg-white/10 backdrop-blur-sm hover:bg-white/20 border-white/10 hover:border-white/20"
+                className="p-4 transition-all duration-500 border rounded-lg bg-white/10 backdrop-blur-sm hover:bg-white/20 border-white/10 hover:border-white/20"
               >
                 <div className="flex items-start space-x-4">
                   <motion.div 
@@ -195,13 +190,13 @@ const About = () => {
                   </motion.div>
                   <div>
                     <motion.h4 
-                      className="mb-2 text-lg font-semibold text-white"
+                      className="mb-1 text-base font-semibold text-white sm:mb-2 sm:text-lg"
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     >
                       {feature.title}
                     </motion.h4>
-                    <p className="text-gray-300">
+                    <p className="text-sm text-gray-300 sm:text-base">
                       {feature.description}
                     </p>
                   </div>
