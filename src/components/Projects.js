@@ -108,32 +108,32 @@ const Projects = () => {
   return (
     <section id="projects" className="relative py-12 text-white sm:py-24">
       <div className="container px-4 mx-auto">
-        {/* Section Heading */}
-        <motion.h2
+      {/* Section Heading */}
+      <motion.h2
            className="text-3xl font-bold text-center text-transparent sm:text-5xl bg-gradient-to-r from-purple-500 to-cyan-400 bg-clip-text"
            initial={{ opacity: 0, y: 20 }}
            whileInView={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.8 }}
            viewport={{ once: true }}
-        >
+      >
           My Projects
-        </motion.h2>
-        <motion.div
+      </motion.h2>
+      <motion.div
           className="h-1 mx-auto mt-4 mb-12 rounded-full bg-gradient-to-r from-purple-500 to-cyan-400"
-          initial={{ width: 0 }}
+        initial={{ width: 0 }}
           whileInView={{ width: '8rem' }}
-          transition={{ duration: 1, ease: 'easeInOut' }}
+        transition={{ duration: 1, ease: 'easeInOut' }}
           viewport={{ once: true }}
-        />
+      />
 
         {/* Description Sentence */}
         <p className="mb-10 text-base text-center text-gray-300 sm:text-lg">
           Here are some of the projects I’ve built, showcasing my skills and experience.
-        </p>
+      </p>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredProjects.map((project) => (
+        {filteredProjects.map((project) => (
             <motion.div
               key={project.id}
               className="flex flex-col overflow-hidden transition-all duration-300 transform border shadow-2xl bg-gray-800/50 backdrop-blur-sm rounded-2xl border-white/10 hover:shadow-cyan-400/20 hover:-translate-y-2"
@@ -144,45 +144,45 @@ const Projects = () => {
               transition={!isMobile ? { duration: 0.5 } : {}}
             >
               <div className="relative overflow-hidden group">
-                <img
-                  src={project.image}
-                  alt={project.title}
+              <img
+                src={project.image}
+                alt={project.title}
                   className="object-cover w-full h-48 transition-all duration-500 group-hover:scale-110 group-hover:blur-sm group-hover:brightness-75"
-                />
+              />
                 <div className="absolute inset-0 transition-all duration-300 opacity-0 bg-gradient-to-t from-black/80 via-transparent to-transparent group-hover:opacity-100" />
-                <a
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
                   className="absolute inset-0 z-10 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100"
-                >
+              >
                   <span className="px-4 py-2 text-lg font-bold text-white transition-all duration-300 transform scale-90 rounded-lg bg-black/50 group-hover:scale-100">
                     View Live
-                  </span>
-                </a>
-              </div>
+                </span>
+              </a>
+            </div>
               <div className="flex flex-col flex-grow p-4 sm:p-6">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-lg font-bold text-white sm:text-2xl">{project.title}</h3>
-                  {project.featured && (
+              {project.featured && (
                     <span className="px-3 py-1 text-xs font-bold text-white rounded-full bg-gradient-to-r from-green-400 to-emerald-500">
                       LIVE
                     </span>
-                  )}
-                </div>
+              )}
+            </div>
                 <p className="flex-grow mb-4 text-sm text-gray-400 sm:text-base">
-                  {project.description}
-                </p>
+              {project.description}
+            </p>
                 <div className="flex flex-wrap items-center gap-2 mb-4">
-                  {project.icons.map((icon, idx) => (
+                {project.icons.map((icon, idx) => (
                     <span key={idx} className="text-2xl" title={project.technologies[idx]}>{icon}</span>
-                  ))}
-                </div>
-                <div className="flex items-center justify-between mt-auto">
+                ))}
+              </div>
+            <div className="flex items-center justify-between mt-auto">
                   <motion.a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
                     className="flex items-center gap-2 px-4 py-2 text-sm font-bold text-white transition-all duration-300 rounded-lg sm:px-5 sm:py-2.5 bg-cyan-600 hover:bg-cyan-700"
                     whileHover={!isMobile ? { scale: 1.05 } : {}}
                   >
@@ -197,10 +197,10 @@ const Projects = () => {
                   >
                     <FaGithub size={24} />
                   </motion.a>
-                </div>
-              </div>
+            </div>
+          </div>
             </motion.div>
-          ))}
+        ))}
         </div>
       </div>
     </section>

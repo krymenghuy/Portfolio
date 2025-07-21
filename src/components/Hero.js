@@ -52,7 +52,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative flex items-center justify-center h-screen px-4 overflow-hidden sm:px-6 lg:px-8">
+    <section id="home" className="relative flex flex-col items-center justify-center h-auto min-h-screen px-2 pt-16 pb-8 overflow-hidden sm:px-6 lg:px-8">
       {/* Animated Background Elements - Disable on mobile */}
       {!isMobile && (
         <>
@@ -80,19 +80,19 @@ const Hero = () => {
         </>
       )}
 
-      <div className="relative z-10 w-full max-w-6xl px-4 mx-auto">
-        <div className="flex flex-col items-center justify-center md:flex-row md:gap-8 lg:gap-12">
+      <div className="relative z-10 w-full max-w-6xl px-2 mx-auto">
+        <div className="flex flex-col items-center justify-center gap-8 md:flex-row md:gap-8 lg:gap-12">
           {/* Text Content */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="flex-1 text-center md:text-left"
+            className="flex-1 w-full text-center flex flex-col items-center justify-center mx-auto md:text-left md:items-start"
           >
             {/* Greeting */}
             <motion.p
               variants={textVariants}
-              className="mb-2 text-lg font-semibold text-blue-400 sm:text-xl"
+              className="mb-2 text-base font-semibold text-blue-400 sm:text-lg"
             >
               Hello, I'm
             </motion.p>
@@ -107,7 +107,7 @@ const Hero = () => {
                 type: "spring",
                 stiffness: 100
               }}
-              className="mb-3 text-4xl font-bold text-white sm:text-5xl md:text-6xl"
+              className="mb-3 text-3xl font-bold text-white sm:text-4xl md:text-5xl"
             >
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
@@ -131,7 +131,7 @@ const Hero = () => {
             {/* Title with typing effect */}
             <motion.h2
               variants={textVariants}
-              className="mb-5 text-lg text-gray-300 sm:text-2xl md:text-3xl"
+              className="mb-5 text-base text-gray-300 sm:text-xl md:text-2xl"
             >
               <motion.span
                 initial={{ opacity: 0 }}
@@ -160,7 +160,7 @@ const Hero = () => {
             {/* CTA Buttons with enhanced hover effects */}
             <motion.div
               variants={textVariants}
-              className="flex flex-col justify-center gap-4 mb-8 sm:flex-row md:justify-start"
+              className="flex flex-col justify-center gap-3 mb-8 sm:flex-row md:justify-start"
             >
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -245,7 +245,7 @@ const Hero = () => {
               type: "spring",
               stiffness: 80
             }}
-            className="flex justify-center flex-1 w-full mt-10 md:w-auto md:justify-end md:mt-0"
+            className="flex justify-center flex-1 w-full mt-6 mx-auto md:w-auto md:justify-end md:mt-0"
           >
             <div className="relative">
               {/* Animated gradient border */}

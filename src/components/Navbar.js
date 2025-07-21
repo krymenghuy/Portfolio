@@ -1,6 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
+
+const NAV_ITEMS = [
+  { name: 'Home', href: '#home', id: 'home' },
+  { name: 'About', href: '#about', id: 'about' },
+  { name: 'Skills', href: '#skills', id: 'skills' },
+  { name: 'Projects', href: '#projects', id: 'projects' },
+  { name: 'Contact', href: '#contact', id: 'contact' },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,12 +16,11 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home');
   const menuRef = useRef(null);
 
+  // Highlight active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 50;
-      setScrolled(isScrolled);
-      // Active section highlight
-      const sections = ['home', 'about', 'skills', 'projects', 'testimonials', 'contact'];
+      setScrolled(window.scrollY > 50);
+      const sections = NAV_ITEMS.map(item => item.id);
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
         if (el && window.scrollY + 80 >= el.offsetTop) {
@@ -26,13 +33,9 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent background scroll when mobile menu is open
+  // Prevent background scroll when menu is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    document.body.style.overflow = isOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
@@ -57,37 +60,23 @@ const Navbar = () => {
       }
     };
     menuRef.current.addEventListener('keydown', handleKeyDown);
-    return () => {
-      if (menuRef.current) {
-        menuRef.current.removeEventListener('keydown', handleKeyDown);
-      }
-    };
+    return () => menuRef.current && menuRef.current.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
-
-  const navItems = [
-    { name: 'Home', href: '#home', id: 'home' },
-    { name: 'About', href: '#about', id: 'about' },
-    { name: 'Skills', href: '#skills', id: 'skills' },
-    { name: 'Projects', href: '#projects', id: 'projects' },
-    
-    { name: 'Contact', href: '#contact', id: 'contact' },
-  ];
 
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
     if (element) {
-      // Dynamic offset: smaller on mobile
       const isMobile = window.innerWidth < 640;
       const yOffset = isMobile ? -50 : -80;
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
-      setTimeout(() => setIsOpen(false), 350);
+      // Auto-close dropdown after click on mobile
+      if (isMobile) setTimeout(() => setIsOpen(false), 350);
     } else {
       setIsOpen(false);
     }
   };
 
-  // Click outside to close mobile menu
   const handleBackdropClick = (e) => {
     if (e.target.id === 'navbar-backdrop') setIsOpen(false);
   };
@@ -96,13 +85,13 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 w-full z-50 h-16 transition-all duration-300 ${
         scrolled ? 'bg-white/10 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
     >
       <div className="container-custom">
         <div className="flex items-center w-full px-2 py-4 sm:py-5 sm:px-4 md:py-6 md:px-8 lg:px-16 md:justify-between">
-          {/* Logo - Left on md+ */}
+          {/* Logo */}
           <div className="flex items-center flex-shrink-0">
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -115,10 +104,10 @@ const Navbar = () => {
             </motion.button>
           </div>
 
-          {/* Desktop Navigation - All Items Right on md+ */}
+          {/* Desktop Navigation */}
           <nav aria-label="Main navigation" className="items-center hidden ml-auto md:flex">
             <ul className="flex items-center space-x-4 sm:space-x-6 md:space-x-6 lg:space-x-8">
-              {navItems.map((item) => (
+              {NAV_ITEMS.map((item) => (
                 <li key={item.name}>
                   <motion.button
                     whileHover={{ scale: 1.1 }}
@@ -132,7 +121,6 @@ const Navbar = () => {
                     aria-current={activeSection === item.id ? 'page' : undefined}
                   >
                     {item.name}
-                    {/* Cool sliding underline animation */}
                     <span
                       className={`pointer-events-none absolute left-0 right-0 -bottom-1 mx-auto h-[3px] w-full max-w-[80%] rounded-full
                         bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400
@@ -151,45 +139,66 @@ const Navbar = () => {
           </nav>
 
           {/* Mobile menu button */}
-          <div className="flex items-center justify-end flex-1 md:hidden">
-            <button
+          <div className="flex items-center justify-end flex-1 h-full md:hidden">
+            <motion.button
+              type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="flex items-center justify-center w-12 h-12 mr-2 text-white transition-colors duration-300 rounded-full bg-blue-500/80 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 sm:mr-4 md:mr-0"
+              whileTap={{ scale: 0.92 }}
+              whileHover={{ scale: 1.08 }}
+              className="flex items-center justify-center w-12 h-12 m-0 text-white transition-all duration-200 bg-blue-700 border-2 border-blue-300 rounded-full shadow-2xl hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
               tabIndex={0}
             >
               {isOpen ? <FaTimes size={28} /> : <FaBars size={28} />}
-            </button>
+            </motion.button>
           </div>
         </div>
 
         {/* Mobile Navigation & Backdrop */}
+        <AnimatePresence>
         {isOpen && (
-          <div
+          <motion.div
             id="navbar-backdrop"
-            className="fixed inset-0 z-40 bg-black/40 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-40 bg-blue-900/95 backdrop-blur-2xl md:hidden"
             onClick={handleBackdropClick}
             aria-hidden="true"
           >
             <motion.div
               ref={menuRef}
               id="mobile-menu"
-              initial={{ opacity: 0, y: -30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              className="relative z-50 py-4 mt-2 border shadow-2xl rounded-b-xl bg-gray-900/80 backdrop-blur-xl border-white/10"
-              style={{ minWidth: '70vw', maxWidth: 400, margin: '0 auto' }}
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', stiffness: 260, damping: 30 }}
+              className="fixed inset-0 z-50 flex flex-col"
               tabIndex={-1}
             >
-              <nav aria-label="Mobile navigation">
-                <ul className="flex flex-col px-4 space-y-2 sm:space-y-4">
-                  {navItems.map((item) => (
-                    <li key={item.name}>
+              {/* Top bar with logo and close button */}
+              <div className="flex items-center justify-between w-full px-6 pt-6 pb-2">
+                <span className="text-2xl font-bold text-blue-400 select-none">KMH</span>
+                <button
+                  type="button"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-center w-12 h-12 text-3xl text-white rounded-full shadow-lg bg-sky-600 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                  aria-label="Close menu"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              {/* Dropdown menu container */}
+              <div className="flex items-center justify-center flex-1 w-full px-4">
+                <ul className="flex flex-col w-full max-w-xs gap-4 p-6 shadow-2xl bg-gradient-to-br from-cyan-700 via-blue-900 to-purple-900 rounded-2xl">
+                  {NAV_ITEMS.map((item) => (
+                    <li key={item.name} className="w-full">
                       <button
                         onClick={() => scrollToSection(item.href)}
-                        className={`w-full text-base sm:text-lg font-semibold text-left transition-colors duration-300 px-2 py-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${activeSection === item.id ? 'text-blue-400' : 'text-gray-300 hover:text-blue-400'}`}
+                        className={`w-full text-2xl font-bold text-center py-4 rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400 ${activeSection === item.id ? 'text-blue-400 bg-white/10' : 'text-gray-200 hover:text-blue-400 hover:bg-white/10'}`}
                         tabIndex={0}
                         aria-current={activeSection === item.id ? 'page' : undefined}
                       >
@@ -198,10 +207,11 @@ const Navbar = () => {
                     </li>
                   ))}
                 </ul>
-              </nav>
+              </div>
             </motion.div>
-          </div>
+          </motion.div>
         )}
+        </AnimatePresence>
       </div>
     </motion.nav>
   );
