@@ -16,7 +16,6 @@ import useIsMobile from '../hooks/useIsMobile';
 
 const Projects = () => {
   const isMobile = useIsMobile();
-  const [activeFilter, setActiveFilter] = useState('all');
   const [galleryProject, setGalleryProject] = useState(null);
   const [galleryIndex, setGalleryIndex] = useState(0);
 
@@ -120,15 +119,7 @@ const Projects = () => {
     },
   ];
 
-  const filters = [
-    { name: 'All', value: 'all' },
-    { name: 'Frontend', value: 'frontend' },
-    { name: 'Full Stack', value: 'fullstack' }
-  ];
-
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category.toLowerCase().includes(activeFilter.toLowerCase()));
+  const filteredProjects = projects;
 
   const openGallery = (project) => {
     if (!project.gallery?.length) return;

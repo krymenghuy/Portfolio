@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaTwitter, FaLanguage, FaFacebookF, FaTelegram } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLanguage, FaFacebookF, FaTelegram } from 'react-icons/fa';
 
 const infoCards = [
   {

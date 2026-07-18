@@ -21,32 +21,6 @@ const About = () => {
     }
   ];
 
-  // Floating animation variants
-  const floatingVariants = {
-    animate: {
-      y: [0, -10, 0],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
-  };
-
-  // Stats counter animation
-  const statsVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { 
-      opacity: 1, 
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        type: "spring",
-        stiffness: 100
-      }
-    }
-  };
-
   return (
     <section id="about" className="relative pt-0 pb-10 md:pb-20 lg:pb-24">
       {/* Animated Background Elements */}

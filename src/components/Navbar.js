@@ -60,7 +60,8 @@ const Navbar = () => {
       }
     };
     menuRef.current.addEventListener('keydown', handleKeyDown);
-    return () => menuRef.current && menuRef.current.removeEventListener('keydown', handleKeyDown);
+    const menuNode = menuRef.current;
+    return () => menuNode && menuNode.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
 
   const scrollToSection = (href) => {
