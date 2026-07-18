@@ -8,7 +8,18 @@ import {
   FaGitAlt,
   FaGithub
 } from 'react-icons/fa';
-import { SiTailwindcss, SiBootstrap, SiLaravel, SiPhp, SiMysql } from 'react-icons/si';
+import { 
+  SiTailwindcss, 
+  SiBootstrap, 
+  SiLaravel, 
+  SiPhp, 
+  SiMysql, 
+  SiPostgresql, 
+  SiTypescript, 
+  SiPostman,
+  SiC,
+  SiCplusplus
+} from 'react-icons/si';
 
 const Skills = () => {
   const skillCategories = [
@@ -19,6 +30,7 @@ const Skills = () => {
       skills: [
         { name: 'React.js', icon: <FaReact />, color: '#61DAFB', bgColor: '#61DAFB20', hoverColor: '#61DAFB' },
         { name: 'JavaScript', icon: <FaJs />, color: '#F7DF1E', bgColor: '#F7DF1E20', hoverColor: '#F7DF1E' },
+        { name: 'TypeScript', icon: <SiTypescript />, color: '#3178C6', bgColor: '#3178C620', hoverColor: '#3178C6' },
         { name: 'HTML5', icon: <FaHtml5 />, color: '#E34F26', bgColor: '#E34F2620', hoverColor: '#E34F26' },
         { name: 'CSS3', icon: <FaCss3Alt />, color: '#1572B6', bgColor: '#1572B620', hoverColor: '#1572B6' },
         { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: '#06B6D4', bgColor: '#06B6D420', hoverColor: '#06B6D4' },
@@ -33,6 +45,9 @@ const Skills = () => {
         { name: 'Laravel', icon: <SiLaravel />, color: '#FF2D20', bgColor: '#FF2D2020', hoverColor: '#FF2D20' },
         { name: 'PHP', icon: <SiPhp />, color: '#777BB4', bgColor: '#777BB420', hoverColor: '#777BB4' },
         { name: 'MySQL', icon: <SiMysql />, color: '#4479A1', bgColor: '#4479A120', hoverColor: '#4479A1' },
+        { name: 'PostgreSQL', icon: <SiPostgresql />, color: '#4169E1', bgColor: '#4169E120', hoverColor: '#4169E1' },
+        { name: 'C', icon: <SiC />, color: '#A8B9CC', bgColor: '#A8B9CC20', hoverColor: '#A8B9CC' },
+        { name: 'C++', icon: <SiCplusplus />, color: '#00599C', bgColor: '#00599C20', hoverColor: '#00599C' },
       ]
     },
     {
@@ -42,6 +57,7 @@ const Skills = () => {
       skills: [
         { name: 'Git', icon: <FaGitAlt />, color: '#F05032', bgColor: '#F0503220', hoverColor: '#F05032' },
         { name: 'GitHub', icon: <FaGithub />, color: '#181717', bgColor: '#18171720', hoverColor: '#181717' },
+        { name: 'Postman', icon: <SiPostman />, color: '#FF6C37', bgColor: '#FF6C3720', hoverColor: '#FF6C37' },
       ]
     }
   ];
@@ -145,12 +161,12 @@ const Skills = () => {
               <div className="relative w-full h-6 max-w-md overflow-hidden rounded-full shadow bg-green-900/30">
                 <motion.div
                   initial={{ width: 0 }}
-                  whileInView={{ width: '50%' }}
+                  whileInView={{ width: '70%' }}
                   transition={{ duration: 1.2 }}
                   className="absolute top-0 left-0 h-6 rounded-full bg-gradient-to-r from-green-400 to-teal-500"
-                  style={{ width: '50%' }}
+                  style={{ width: '70%' }}
                 />
-                <span className="absolute inset-0 flex items-center justify-center text-sm font-bold text-green-100">50%</span>
+                <span className="absolute inset-0 flex items-center justify-center text-sm font-bold text-green-100">70%</span>
               </div>
             </div>
             <ul className="flex flex-wrap justify-center gap-6">

@@ -130,13 +130,13 @@ const About = () => {
               </motion.p>
             </div>
             <div className="space-y-3 text-sm leading-relaxed text-gray-300 sm:text-base">
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
                 viewport={{ once: true }}
               >
-            🏢 Professional Experience: Applied my skills in a professional setting web design role at PHSARTECH company, delivering client-focused solutions.
+            🏢 Professional Experience: Worked in Web Design at PHSARTECH company in Phnom Penh, and worked at Vectorasoft company in Phnom Penh, Meta Tower (1 year).
               </motion.p>
             </div>
           </motion.div>
