@@ -87,7 +87,7 @@ const Hero = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="flex-1 w-full text-center flex flex-col items-center justify-center mx-auto md:text-left md:items-start"
+            className="flex flex-col items-center justify-center flex-1 w-full mx-auto text-center md:text-left md:items-start"
           >
             {/* Greeting */}
             <motion.p
@@ -245,7 +245,7 @@ const Hero = () => {
               type: "spring",
               stiffness: 80
             }}
-            className="flex justify-center flex-1 w-full mt-6 mx-auto md:w-auto md:justify-end md:mt-0"
+            className="flex justify-center flex-1 w-full mx-auto mt-6 md:w-auto md:justify-end md:mt-0"
           >
             <div className="relative">
               {/* Animated gradient border */}

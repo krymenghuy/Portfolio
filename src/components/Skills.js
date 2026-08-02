@@ -91,7 +91,7 @@ const Skills = () => {
         <div className="relative p-8 mb-12 overflow-hidden border shadow-xl bg-gray-900/50 backdrop-blur-sm rounded-2xl border-blue-500/20">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-10"></div>
           <div className="relative z-10">
-            <h3 className="mb-2 text-2xl font-bold text-center text-white">Frontend Level</h3>
+            {/* <h3 className="mb-2 text-2xl font-bold text-center text-white">Frontend Level</h3> */}
             <div className="flex flex-col items-center mb-6">
               <span className="mb-2 text-lg font-bold text-blue-200">Frontend Level</span>
               <div className="relative w-full h-6 max-w-md overflow-hidden rounded-full shadow bg-blue-900/30">
@@ -155,7 +155,7 @@ const Skills = () => {
         <div className="relative p-8 mb-12 overflow-hidden border shadow-xl bg-gray-900/50 backdrop-blur-sm rounded-2xl border-green-500/20">
           <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-teal-600 opacity-10"></div>
           <div className="relative z-10">
-            <h3 className="mb-2 text-2xl font-bold text-center text-white">Backend Level</h3>
+            {/* <h3 className="mb-2 text-2xl font-bold text-center text-white">Backend Level</h3> */}
             <div className="flex flex-col items-center mb-6">
               <span className="mb-2 text-lg font-bold text-green-200">Backend Level</span>
               <div className="relative w-full h-6 max-w-md overflow-hidden rounded-full shadow bg-green-900/30">

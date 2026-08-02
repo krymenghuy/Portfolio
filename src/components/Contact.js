@@ -6,14 +6,14 @@ const infoCards = [
   {
     icon: <FaEnvelope className="text-5xl text-blue-400 drop-shadow-lg" />,
     label: 'Email',
-    value: 'menghuykry@gmail.com',
-    link: 'mailto:menghuykry@gmail.com',
+    value: 'menghuykry76@gmail.com',
+    link: 'mailto:menghuykry76@gmail.com',
   },
   {
     icon: <FaPhone className="text-5xl text-purple-400 drop-shadow-lg" />,
     label: 'Phone',
-    value: '(+855) 962 365 105',
-    link: 'tel:+855962365105',
+    value: '0966365102',
+    link: 'tel:+855966365102',
   },
   {
     icon: <FaMapMarkerAlt className="text-5xl text-pink-400 drop-shadow-lg" />,

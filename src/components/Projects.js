@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaReact, FaLaravel, FaJs, FaBootstrap, FaTimes, FaChevronLeft, FaChevronRight, FaServer } from 'react-icons/fa';
-import { SiTailwindcss, SiMysql, SiHtml5, SiCss3 } from 'react-icons/si';
+import { FaGithub, FaReact, FaLaravel, FaJs, FaBootstrap, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { SiTailwindcss, SiMysql, SiHtml5, SiCss3, SiPostman } from 'react-icons/si';
 import ccmImage from '../asset/cc.png';
 import documentImage from '../asset/document.png';
 import restroomImage from '../asset/restroom.png';
@@ -59,12 +59,13 @@ const Projects = () => {
       description: "Business platform for Meta Tower with Estate, Authorization Manager, HR, and Client modules. Built with Laravel, Bootstrap, JavaScript, and REST API.",
       image: metaTower1,
       gallery: [metaTower1, metaTower2, metaTower3, metaTower4, metaTower5],
-      technologies: ["Laravel", "Bootstrap", "JavaScript", "REST API"],
+      technologies: ["Laravel", "Bootstrap", "JavaScript", "REST API", "MySQL"],
       icons: [
         <FaLaravel className="text-red-600" />,
         <FaBootstrap className="text-purple-600" />,
         <FaJs className="text-yellow-500" />,
-        <FaServer className="text-green-400" />
+        <SiPostman className="text-orange-500" />,
+        <SiMysql className="text-blue-400" />
       ],
       category: "Full Stack",
       github: "https://meta.vectoranet.com/landingpoint",
