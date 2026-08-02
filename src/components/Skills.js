@@ -18,7 +18,8 @@ import {
   SiTypescript, 
   SiPostman,
   SiC,
-  SiCplusplus
+  SiCplusplus,
+  SiJquery
 } from 'react-icons/si';
 
 const Skills = () => {
@@ -35,6 +36,7 @@ const Skills = () => {
         { name: 'CSS3', icon: <FaCss3Alt />, color: '#1572B6', bgColor: '#1572B620', hoverColor: '#1572B6' },
         { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: '#06B6D4', bgColor: '#06B6D420', hoverColor: '#06B6D4' },
         { name: 'Bootstrap', icon: <SiBootstrap />, color: '#7952B3', bgColor: '#7952B320', hoverColor: '#7952B3' },
+        { name: 'jQuery', icon: <SiJquery />, color: '#0769AD', bgColor: '#0769AD20', hoverColor: '#0769AD' },
       ]
     },
     {
