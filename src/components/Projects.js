@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaReact, FaLaravel, FaJs, FaBootstrap, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import { SiTailwindcss, SiMysql, SiHtml5, SiCss3, SiPostman } from 'react-icons/si';
+import { SiTailwindcss, SiMysql, SiHtml5, SiCss3, SiPostman, SiPhp } from 'react-icons/si';
 import ccmImage from '../asset/cc.png';
 import documentImage from '../asset/document.png';
 import restroomImage from '../asset/restroom.png';
@@ -12,6 +12,7 @@ import metaTower2 from '../asset/meta-tower-2.png';
 import metaTower3 from '../asset/meta-tower-3.png';
 import metaTower4 from '../asset/meta-tower-4.png';
 import metaTower5 from '../asset/meta-tower-5.png';
+import edvanceImage from '../asset/edvance-dashboard.png';
 import useIsMobile from '../hooks/useIsMobile';
 
 const Projects = () => {
@@ -74,6 +75,26 @@ const Projects = () => {
     },
     {
       id: 4,
+      title: "Edvance School Dashboard",
+      description: "Executive school management dashboard for Edvance (General Education Edition) with revenue, enrollment, and collection analytics. Built with Laravel, PHP, JavaScript, Tailwind CSS, REST API, and MySQL.",
+      image: edvanceImage,
+      gallery: [edvanceImage],
+      technologies: ["Laravel", "PHP", "JavaScript", "Tailwind CSS", "REST API", "MySQL", "Postman"],
+      icons: [
+        <FaLaravel className="text-red-600" />,
+        <SiPhp className="text-indigo-400" />,
+        <FaJs className="text-yellow-500" />,
+        <SiTailwindcss className="text-cyan-400" />,
+        <SiPostman className="text-orange-500" />,
+        <SiMysql className="text-blue-400" />
+      ],
+      category: "Full Stack",
+      github: "#",
+      live: "#",
+      featured: true
+    },
+    {
+      id: 5,
       title: "Portfolio Website",
       description: "A modern, responsive portfolio built with React, Tailwind CSS, and Framer Motion for smooth animations.",
       image: kmhImage,
@@ -88,7 +109,7 @@ const Projects = () => {
       featured: true
     },
     {
-      id: 5,
+      id: 6,
       title: "Restroom Dashboard",
       description: "A dashboard displaying real-time restroom status and occupancy.",
       image: restroomImage,
@@ -104,7 +125,7 @@ const Projects = () => {
       featured: false
     },
     {
-      id: 6,
+      id: 7,
       title: "Shop Mart",
       description: "E-commerce site for security cameras, gaming gear, and camera lenses.",
       image: shopmartImage,

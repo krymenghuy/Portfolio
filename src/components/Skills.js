@@ -19,7 +19,8 @@ import {
   SiPostman,
   SiC,
   SiCplusplus,
-  SiJquery
+  SiJquery,
+  SiFigma
 } from 'react-icons/si';
 
 const Skills = () => {
@@ -53,13 +54,14 @@ const Skills = () => {
       ]
     },
     {
-      title: "Version Control",
-      description: "Collaboration and code management",
+      title: "Tools & Others",
+      description: "Collaboration, design, and development tools",
       gradient: "from-orange-500 to-red-600",
       skills: [
         { name: 'Git', icon: <FaGitAlt />, color: '#F05032', bgColor: '#F0503220', hoverColor: '#F05032' },
         { name: 'GitHub', icon: <FaGithub />, color: '#181717', bgColor: '#18171720', hoverColor: '#181717' },
         { name: 'Postman', icon: <SiPostman />, color: '#FF6C37', bgColor: '#FF6C3720', hoverColor: '#FF6C37' },
+        { name: 'Figma', icon: <SiFigma />, color: '#F24E1E', bgColor: '#F24E1E20', hoverColor: '#F24E1E' },
       ]
     }
   ];
