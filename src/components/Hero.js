@@ -152,9 +152,9 @@ const Hero = () => {
             {/* Description with fade in */}
             <motion.p
               variants={textVariants}
-              className="max-w-xl mx-auto mb-6 text-sm leading-relaxed text-gray-400 md:mx-0 sm:text-base"
+              className="max-w-2xl mx-auto mb-6 text-sm leading-relaxed text-gray-400 md:mx-0 sm:text-base"
             >
-            Experienced in building responsive web applications using React.js, Tailwind CSS, Laravel, and MySQL. Focused on clean design, good performance, and real-world functionality.
+              Fourth-year Information Technology student at Norton University with a strong focus on full-stack and backend web development. Experienced in designing and engineering web applications such as University Management Systems, Document Management Systems, E-Commerce platforms, and ERP solutions. Hands-on experience developing scalable applications using Laravel, PHP, React.js, JavaScript, TypeScript, MySQL, and PostgreSQL, along with implementing RESTful APIs, JWT authentication, and responsive user interfaces. Passionate about learning modern technologies and building secure, efficient, and user-centric digital products with strong problem-solving, communication, and teamwork skills to foster trust and collaboration within engineering teams.
             </motion.p>
 
             {/* CTA Buttons with enhanced hover effects */}
@@ -171,7 +171,8 @@ const Hero = () => {
                 View My Work
               </motion.button>
               <motion.a
-                href="https://drive.google.com/file/d/17X7T-M0s7Y6SkBDWtIpc3iFf2IiHdR2l/view?usp=sharing"
+                href="/Kry_menghuyCV.pdf"
+                download="Kry_menghuyCV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
@@ -225,7 +226,8 @@ const Hero = () => {
                   transition: { duration: 0.3 }
                 } : {}}
                 whileTap={{ scale: 0.9 }}
-                href="https://drive.google.com/file/d/17X7T-M0s7Y6SkBDWtIpc3iFf2IiHdR2l/view?usp=sharing"
+                href="/Kry_menghuyCV.pdf"
+                download="Kry_menghuyCV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 transition-colors duration-300 hover:text-blue-400"

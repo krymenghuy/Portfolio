@@ -110,7 +110,7 @@ const About = () => {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 viewport={{ once: true }}
               >
-            🏢 Professional Experience: Worked in Web Design at PHSARTECH company in Phnom Penh, and worked at Vectorasoft company in Phnom Penh, Meta Tower (1 year).
+            🏢 Professional Experience: Worked in Web Design at PHSARTECH company in Phnom Penh, and worked at Vectorasoft company in Phnom Penh, Meta Tower (1 year++).
               </motion.p>
             </div>
           </motion.div>
